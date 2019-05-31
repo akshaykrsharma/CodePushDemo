@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import CodePush from 'react-native-code-push';
 
 const instructions = Platform.select({
 	ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -15,13 +16,13 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.welcome}>Updated By Code Push!</Text>
-				<Text style={styles.instructions}>To get started, edit App.js</Text>
-				<Text style={styles.instructions}>{instructions}</Text>
+				<Text style={styles.welcome}>Code Push Demo!</Text>
+				<Text style={styles.instructions}>To show how to update app without updating from playstore</Text>
+				<Text style={styles.instructions}>For any doubt contact admin</Text>
 			</View>
 		);
 	}
@@ -45,3 +46,5 @@ const styles = StyleSheet.create({
 		marginBottom: 5
 	}
 });
+
+export default CodePush({ checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME })(App);
